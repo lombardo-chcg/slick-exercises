@@ -1,0 +1,22 @@
+## generic files to ignore
+*~
+*.lock
+*.DS_Store
+*.swp
+*.out
+
+# java specific
+*.class
+
+# gradle specific
+build/
+.gradle/
+
+# intellij
+*.eml
+*.iml
+*.ipr
+*.iws
+.*.sw?
+.idea
+out/
