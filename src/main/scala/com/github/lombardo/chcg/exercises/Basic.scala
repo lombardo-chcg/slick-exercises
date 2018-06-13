@@ -12,7 +12,7 @@ object Basic extends PGExercise {
       This first example shows the pattern to use for each problem:
         - compose a query using the Slick DSL.  This example is trivial but the Slick docs will guide you
         - create a DBIOAction by calling `.result` on the query
-        - run the query using the provided DatabaseDef: `Connection.db`
+        - run the query using the provided DatabaseDef: `com.github.lombardo.chcg.database.Connection.db`
         - Await the result and return it
     */
     val query = facilities

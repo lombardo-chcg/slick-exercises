@@ -5,7 +5,7 @@ import com.github.lombardo.chcg.database.Tables.FacilitiesRow
 import org.scalatest.{FlatSpec, Matchers}
 import slick.jdbc.PostgresProfile.api._
 
-class BasicTest extends FlatSpec with Matchers {
+class BasicSpec extends FlatSpec with Matchers {
 
   "Basic Exercises" should "Retrieve everything from a table" in {
     val solutionQuery =

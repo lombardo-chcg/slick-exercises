@@ -20,7 +20,14 @@ By default, the test suite expects the PG host to be `localhost` and the port `5
 
 Docker image source code: [https://github.com/lombardo-chcg/postgresql-exercises-docker](https://github.com/lombardo-chcg/postgresql-exercises-docker)
 
-### Run Tests
+### Running the Tests
 ```
+# run all the tests
 ./gradlew test
+
+# run a single test class
+./gradlew test --tests BasicSpec
+
+# run a single test method
+./gradlew test --tests "should Retrieve everything from a table"
 ```

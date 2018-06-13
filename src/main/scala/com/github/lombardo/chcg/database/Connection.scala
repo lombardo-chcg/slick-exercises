@@ -1,6 +1,10 @@
 package com.github.lombardo.chcg.database
 
+import java.util.concurrent.TimeUnit.SECONDS
+
 import slick.jdbc.JdbcBackend.Database
+
+import scala.concurrent.duration.Duration
 
 object Connection {
   private val POSTGRES_HOST = sys.env.getOrElse("POSTGRES_HOST", "localhost")
@@ -11,6 +15,7 @@ object Connection {
   private val pgUrl = s"jdbc:postgresql://$POSTGRES_HOST:$POSTGRES_PORT/exercises"
   private val pgDriver = "org.postgresql.Driver"
 
+  val defaultDuration = Duration(10, SECONDS)
   val db = Database.forURL(
     url = pgUrl,
     user = POSTGRES_USER,
