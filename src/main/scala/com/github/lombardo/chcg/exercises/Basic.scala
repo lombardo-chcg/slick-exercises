@@ -1,12 +1,12 @@
 package com.github.lombardo.chcg.exercises
 
-import com.github.lombardo.chcg.database.Connection.db
-import com.github.lombardo.chcg.database.Tables.FacilitiesRow
+import com.github.lombardo.chcg.database.Connection.{db, defaultDuration}
+import com.github.lombardo.chcg.database.Tables.{Bookings, Facilities, FacilitiesRow, Members}
 import slick.jdbc.PostgresProfile.api._
 
 import scala.concurrent.Await
 
-object Basic extends PGExercise {
+object Basic {
   def `Retrieve everything from a table`: Seq[FacilitiesRow] = {
     /*
       This first example shows the pattern to use for each problem:
@@ -15,7 +15,7 @@ object Basic extends PGExercise {
         - run the query using the provided DatabaseDef: `com.github.lombardo.chcg.database.Connection.db`
         - Await the result and return it
     */
-    val query = facilities
+    val query = Facilities
     val dbAction = query.result
     Await.result(db.run(dbAction), defaultDuration)
   }
