@@ -72,6 +72,7 @@ object TSQLRunner {
     val res = executeQuery(solutionQuery)
     println(res.getClass)
     println(res)
+    res
   }
 }
 
