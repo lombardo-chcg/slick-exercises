@@ -4,15 +4,15 @@
 
 ## about
 
-This project adapts the challenges found on [PGExercises](https://pgexercises.com/) to Scala. PGExercises contains excellent, thought-provoking SQL challenges "built on a single dataset".  
+This project maps the challenges found on [PGExercises](https://pgexercises.com/) to a Scala/Slick context. The PGExercises site contains thought-provoking SQL challenges presented in a "learn by doing" format.  
 
-The challenge to the user is to implement solution queries using the Slick DSL.
+The challenge to the user of this project is to solve the problems presented on PGExercises using the Slick DSL.
 
 ## how to use
 
-This project is meant to be used in tandem with the [PGExercises](https://pgexercises.com/) website.  
+The job of the user is to move through the challenges on [PGExercises](https://pgexercises.com/), implementing the solution queries in this project using the Slick DSL, and verifying their code via the provided test suite.
 
-The project currently implements 2 exercise categories:
+This project is meant to be used in tandem with the [PGExercises](https://pgexercises.com/) website.  It currently implements 2 exercise categories:
 
 Exercise Name  | PGExercises Link  |  Project Link
 --|---|--
@@ -20,15 +20,17 @@ Exercise Name  | PGExercises Link  |  Project Link
 `JoinsAndSubqueries`  | https://pgexercises.com/questions/joins/  | https://github.com/lombardo-chcg/slick-exercises/blob/master/src/main/scala/com/github/lombardo/chcg/exercises/JoinsAndSubqueries.scala  
 
 
-The project has methods which align to exercises from [PGExercises](https://pgexercises.com/).  The methods are missing implementations.
+The project has methods which map directly to exercises from [PGExercises](https://pgexercises.com/).  These methods are missing their implementations.  Navigate here for the methods:
+- `src/main/scala/com/github/lombardo/chcg/exercises`
 
-Each class also has a test suite which calls the exercise methods and verifies the return values.
-
-The job of the user is to move through the challenges on [PGExercises](https://pgexercises.com/), implementing the solution queries in this project using the Slick DSL, and verifying their code via the provided test suite.
+Each method has a matching test which calls the exercise methods and verifies the return values.  All the tests are currently failing.  The user's job is to make them go green.  Tests can be found here:
+- `src/test/scala/com/github/lombardo/chcg/exercises/`
 
 ## !! CRITICAL !! Mandatory Prerequisite
 
-The test suite requires a connection to a Postgres instance containing the full dataset from [https://pgexercises.com/](https://pgexercises.com/)
+The exercises are all based on a single dataset from [https://pgexercises.com/](https://pgexercises.com/).
+
+The test suite requires a connection to a Postgres instance containing the full dataset.
 
 A Dockerized PG image with the dataset has been created for convenience.  To use, run this command:
 
@@ -44,7 +46,9 @@ Leave this container running for the duration of your workflow.
 By default, the test suite expects the PG host to be `localhost` and the port `5432`.  These values can be overridden via env vars (`POSTGRES_HOST`, `POSTGRES_PORT`) or hardcoded into the project by modifying the db connection object:
 `src/main/scala/com/github/lombardo/chcg/database/Connection.scala`
 
-Docker image source code: [https://github.com/lombardo-chcg/postgresql-exercises-docker](https://github.com/lombardo-chcg/postgresql-exercises-docker)
+Build the image locally from this repo:  [https://github.com/lombardo-chcg/postgresql-exercises-docker](https://github.com/lombardo-chcg/postgresql-exercises-docker)
+
+Alternatively, the PGExercises site contains instructions for loading the dataset in your own PG server: [https://pgexercises.com/gettingstarted.html](https://pgexercises.com/gettingstarted.html)
 
 ### Getting Started with Gradle
 
@@ -53,9 +57,16 @@ Docker image source code: [https://github.com/lombardo-chcg/postgresql-exercises
 Just a personal preference.  Here's how to get started:
 
 - Clone the repo
-- Open IntelliJ
+- Open IntelliJ and **IMPORT** the project directory (not Open)
+- Choose `Import project from external model` and select Gradle
+- Select `Use gradle wrapper task configuration`
+
+IntelliJ should guide you thru setup of a local Scala SDK for each module (main, test) if one is not already configured.  
 
 ### Running the Tests
+
+The tests can be run from inside IntelliJ using the standard methods or from the command line.  
+
 ```
 # run all the tests
 ./gradlew test
@@ -63,6 +74,6 @@ Just a personal preference.  Here's how to get started:
 # run a single test class
 ./gradlew test --tests BasicSpec
 
-# run a single test method
+# run a single test method using the test name
 ./gradlew test --tests "should Retrieve everything from a table"
 ```
