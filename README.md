@@ -96,6 +96,7 @@ The tests can be run from inside IntelliJ using the standard methods or from the
 - The Slick data model for this project has been auto-generated and is available for use in the exercises.  `TableQuery` objects for the `Members`, `Bookings` and `Facilities` tables await: [https://github.com/lombardo-chcg/slick-exercises/blob/readme/src/main/scala/com/github/lombardo/chcg/database/Tables.scala](https://github.com/lombardo-chcg/slick-exercises/blob/readme/src/main/scala/com/github/lombardo/chcg/database/Tables.scala)
 - The nature of the tests is such that the query must be composed, turned into a `DBIOAction`, run, awaited and the result returned for verification.  A database connection has been provided in the project via the `Connection` object.
 - [Here is a full example of how to implement a solution](https://github.com/lombardo-chcg/slick-exercises/blob/readme/src/main/scala/com/github/lombardo/chcg/exercises/Basic.scala#L10-L21) (Admittedly this "synchronous" approach is not how Slick would be used in an application, however the focus is on the Query DSL and the returned values, therefore I am ok with it.)
+- SOLUTIONS to the queries are provided in the `solutions` package and PRs to improve these solutions from expert Slick-sters are highly encouraged
 
 
 ### Credits
