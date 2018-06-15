@@ -41,7 +41,7 @@ object TestUtils {
 }
 
 // s"""${sys.props("user.dir")}/scripts/application.conf#tsql"""
-@StaticDatabaseConfig("file:/Users/lombardo/Desktop/dev_projects/SLICK/slick-exercises/scripts/application.conf#tsql")
+@StaticDatabaseConfig("file:scripts/application.conf#tsql")
 object TSQLRunner {
   import TestUtils._
   def execute() = {
