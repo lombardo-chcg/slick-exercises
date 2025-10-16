@@ -1,7 +1,7 @@
 package com.github.lombardo.chcg.exercises
 
-import com.github.lombardo.chcg.database.Connection.{db, defaultDuration}
-import com.github.lombardo.chcg.database.Tables.{Bookings, Facilities, FacilitiesRow, Members}
+import com.github.lombardo.chcg.database.Connection.{ db, defaultDuration }
+import com.github.lombardo.chcg.database.Tables.{ Facilities, FacilitiesRow }
 import slick.jdbc.PostgresProfile.api._
 
 import scala.concurrent.Await
@@ -14,8 +14,8 @@ object Basic {
         - create a DBIOAction by calling `.result` on the query
         - run the query using the provided DatabaseDef: `com.github.lombardo.chcg.database.Connection.db`
         - Await the result and return it
-    */
-    val query = Facilities
+     */
+    val query    = Facilities
     val dbAction = query.result
     Await.result(db.run(dbAction), defaultDuration)
   }

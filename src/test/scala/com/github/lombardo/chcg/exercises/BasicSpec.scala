@@ -14,7 +14,7 @@ class BasicSpec extends AnyFlatSpec with Matchers {
            select * from cd.facilities;
         """.as[FacilitiesRow]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Retrieve everything from a table`
+    val result         = Basic.`Retrieve everything from a table`
     result should be(expectedResult)
   }
 
@@ -24,7 +24,7 @@ class BasicSpec extends AnyFlatSpec with Matchers {
         select name, membercost from cd.facilities;
       """.as[(String, BigDecimal)]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Retrieve specific columns from a table`
+    val result         = Basic.`Retrieve specific columns from a table`
     result should be(expectedResult)
   }
 
@@ -34,7 +34,7 @@ class BasicSpec extends AnyFlatSpec with Matchers {
         select * from cd.facilities where membercost > 0;
       """.as[FacilitiesRow]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Control which rows are retrieved`
+    val result         = Basic.`Control which rows are retrieved`
     result should be(expectedResult)
   }
 
@@ -48,10 +48,9 @@ class BasicSpec extends AnyFlatSpec with Matchers {
             (membercost < monthlymaintenance/50.0);
       """.as[(Int, String, BigDecimal, BigDecimal)]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Control which rows are retrieved - part 2`
+    val result         = Basic.`Control which rows are retrieved - part 2`
     result should be(expectedResult)
   }
-
 
   it should "Basic string searches" in {
     val solutionQuery =
@@ -62,7 +61,7 @@ class BasicSpec extends AnyFlatSpec with Matchers {
               name like '%Tennis%';
       """.as[FacilitiesRow]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Basic string searches`
+    val result         = Basic.`Basic string searches`
     result should be(expectedResult)
   }
 
@@ -75,7 +74,7 @@ class BasicSpec extends AnyFlatSpec with Matchers {
               facid in (1,5);
       """.as[FacilitiesRow]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Matching against multiple possible values`
+    val result         = Basic.`Matching against multiple possible values`
     result should be(expectedResult)
   }
 
@@ -91,7 +90,7 @@ class BasicSpec extends AnyFlatSpec with Matchers {
           from cd.facilities;
       """.as[(String, String)]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Classify results into buckets`
+    val result         = Basic.`Classify results into buckets`
     result should be(expectedResult)
   }
 
@@ -103,10 +102,9 @@ class BasicSpec extends AnyFlatSpec with Matchers {
           where joindate >= '2012-09-01';
       """.as[(Int, String, String, java.sql.Timestamp)]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Working with dates`
+    val result         = Basic.`Working with dates`
     result should be(expectedResult)
   }
-
 
   it should "Removing duplicates, and ordering results" in {
     val solutionQuery =
@@ -117,7 +115,7 @@ class BasicSpec extends AnyFlatSpec with Matchers {
         limit 10;
       """.as[String]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Removing duplicates, and ordering results`
+    val result         = Basic.`Removing duplicates, and ordering results`
     result should be(expectedResult)
   }
 
@@ -131,7 +129,7 @@ class BasicSpec extends AnyFlatSpec with Matchers {
           from cd.facilities;
       """.as[String]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Combining results from multiple queries`
+    val result         = Basic.`Combining results from multiple queries`
     result should be(expectedResult)
   }
 
@@ -142,7 +140,7 @@ class BasicSpec extends AnyFlatSpec with Matchers {
           from cd.members;
       """.as[java.sql.Timestamp]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`Simple aggregation`
+    val result         = Basic.`Simple aggregation`
     result should be(Option(expectedResult.head))
   }
 
@@ -156,7 +154,7 @@ class BasicSpec extends AnyFlatSpec with Matchers {
             from cd.members);
         """.as[(String, String, java.sql.Timestamp)]
     val expectedResult = executeQuery(solutionQuery)
-    val result = Basic.`More aggregation`
+    val result         = Basic.`More aggregation`
     result should be(expectedResult)
   }
 }

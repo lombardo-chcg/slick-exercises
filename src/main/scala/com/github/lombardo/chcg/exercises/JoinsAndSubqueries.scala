@@ -1,7 +1,7 @@
 package com.github.lombardo.chcg.exercises
 
-import com.github.lombardo.chcg.database.Connection.{db, defaultDuration}
-import com.github.lombardo.chcg.database.Tables.{Bookings, Facilities, Members}
+import com.github.lombardo.chcg.database.Connection.{ db, defaultDuration }
+import com.github.lombardo.chcg.database.Tables.{ Bookings, Facilities, Members }
 import slick.jdbc.PostgresProfile.api._
 
 import scala.concurrent.Await
@@ -9,7 +9,7 @@ import scala.concurrent.Await
 object JoinsAndSubqueries {
 
   def `Example of how a implementation should look`: Seq[BigDecimal] = {
-    val query = Facilities.filter(_.name like "%Tennis%").map(_.monthlymaintenance)
+    val query    = Facilities.filter(_.name.like("%Tennis%")).map(_.monthlymaintenance)
     val dbAction = query.result
     Await.result(db.run(dbAction), defaultDuration)
   }
@@ -26,7 +26,8 @@ object JoinsAndSubqueries {
     ???
   }
 
-  def `Produce a list of all members, along with their recommender`: Seq[(String, String, Option[String], Option[String])] = {
+  def `Produce a list of all members, along with their recommender`
+      : Seq[(String, String, Option[String], Option[String])] = {
     ???
   }
 

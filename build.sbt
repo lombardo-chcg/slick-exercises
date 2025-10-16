@@ -8,9 +8,9 @@ libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-reflect" % scalaVersion.value,
   
   // Logging
-  "org.apache.logging.log4j" % "log4j-api" % "2.20.0",
-  "org.apache.logging.log4j" % "log4j-core" % "2.20.0",
-  "org.apache.logging.log4j" % "log4j-slf4j-impl" % "2.20.0",
+  "org.apache.logging.log4j" % "log4j-api" % "2.22.1",
+  "org.apache.logging.log4j" % "log4j-core" % "2.22.1",
+  "org.apache.logging.log4j" % "log4j-slf4j2-impl" % "2.22.1",
   
   // Database
   "com.typesafe.slick" %% "slick" % "3.5.0",
