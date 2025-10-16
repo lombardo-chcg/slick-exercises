@@ -1,10 +1,11 @@
 package com.github.lombardo.chcg.exercises
 
 import com.github.lombardo.chcg.TestHelper.executeQuery
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import slick.jdbc.PostgresProfile.api._
 
-class JoinsAndSubqueriesSpec extends FlatSpec with Matchers {
+class JoinsAndSubqueriesSpec extends AnyFlatSpec with Matchers {
 
   "Joins and Subqueries" should "Retrieve the start times of members bookings" in {
     val solutionQuery =

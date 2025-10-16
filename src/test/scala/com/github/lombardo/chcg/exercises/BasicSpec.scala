@@ -2,10 +2,11 @@ package com.github.lombardo.chcg.exercises
 
 import com.github.lombardo.chcg.TestHelper.executeQuery
 import com.github.lombardo.chcg.database.Tables.FacilitiesRow
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import slick.jdbc.PostgresProfile.api._
 
-class BasicSpec extends FlatSpec with Matchers {
+class BasicSpec extends AnyFlatSpec with Matchers {
 
   "Basic Exercises" should "Retrieve everything from a table" in {
     val solutionQuery =

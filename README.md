@@ -60,19 +60,6 @@ Build the image locally from this repo:  [https://github.com/lombardo-chcg/postg
 
 Alternatively, the PGExercises site contains instructions for loading the dataset in your own PG server: [https://pgexercises.com/gettingstarted.html](https://pgexercises.com/gettingstarted.html)
 
-### Getting Started with Gradle
-
-> "This is a Scala project...why is it built with Gradle instead of sbt?"
-
-Just a personal preference.  Here's how to get started:
-
-- Clone the repo
-- Open IntelliJ and **IMPORT** the project directory (not Open)
-- Choose `Import project from external model` and select Gradle
-- Select `Use gradle wrapper task configuration`
-
-IntelliJ should guide you thru setup of a local Scala SDK for each module (main, test) if one is not already configured.  
-
 ### Running the Tests
 
 **Prerequisite!  make sure to start the local Docker container first!**
@@ -81,13 +68,13 @@ The tests can be run from inside IntelliJ using the standard methods or from the
 
 ```
 # run all the tests
-./gradlew test
+sbt test
 
 # run a single test class
-./gradlew test --tests BasicSpec
+sbt 'testOnly *BasicSpec'
 
 # run a single test method using the test name
-./gradlew test --tests "should Retrieve everything from a table"
+sbt 'testOnly *BasicSpec -- -z "Retrieve everything from a table"'
 ```
 
 ### Tips
