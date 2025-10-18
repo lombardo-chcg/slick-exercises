@@ -1,9 +1,8 @@
 package com.github.lombardo.chcg.database
 
-import java.util.concurrent.TimeUnit.SECONDS
-
 import slick.jdbc.JdbcBackend.Database
 
+import java.util.concurrent.TimeUnit.SECONDS
 import scala.concurrent.duration.Duration
 
 object Connection {

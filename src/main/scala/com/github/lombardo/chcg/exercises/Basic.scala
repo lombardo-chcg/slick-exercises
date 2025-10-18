@@ -1,7 +1,7 @@
 package com.github.lombardo.chcg.exercises
 
-import com.github.lombardo.chcg.database.Connection.{ db, defaultDuration }
-import com.github.lombardo.chcg.database.Tables.{ Facilities, FacilitiesRow }
+import com.github.lombardo.chcg.database.Connection.{db, defaultDuration}
+import com.github.lombardo.chcg.database.Tables.{Facilities, FacilitiesRow}
 import slick.jdbc.PostgresProfile.api._
 
 import scala.concurrent.Await

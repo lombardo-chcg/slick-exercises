@@ -1,11 +1,9 @@
 package com.github.lombardo.chcg.database
 // AUTO-GENERATED Slick data model
 /** Stand-alone Slick data model for immediate use */
-object Tables
-    extends {
-      val profile = slick.jdbc.PostgresProfile
-    }
-    with Tables
+object Tables extends Tables {
+  val profile = slick.jdbc.PostgresProfile
+}
 
 /** Slick data model trait for extension, choice of backend or usage in the cake pattern. (Make sure to initialize this
   * late.)
@@ -44,7 +42,7 @@ trait Tables {
 
   /** Table description of table bookings. Objects of this class serve as prototypes for rows in queries. */
   class Bookings(_tableTag: Tag) extends profile.api.Table[BookingsRow](_tableTag, Some("cd"), "bookings") {
-    def * = (bookid, facid, memid, starttime, slots) <> (BookingsRow.tupled, BookingsRow.unapply)
+    def * = (bookid, facid, memid, starttime, slots).<>(BookingsRow.tupled, BookingsRow.unapply)
 
     /** Maps whole row to an option. Useful for outer joins. */
     def ? = (Rep.Some(bookid), Rep.Some(facid), Rep.Some(memid), Rep.Some(starttime), Rep.Some(slots)).shaped.<>(
@@ -144,7 +142,7 @@ trait Tables {
 
   /** Table description of table facilities. Objects of this class serve as prototypes for rows in queries. */
   class Facilities(_tableTag: Tag) extends profile.api.Table[FacilitiesRow](_tableTag, Some("cd"), "facilities") {
-    def * = (facid, name, membercost, guestcost, initialoutlay, monthlymaintenance) <> (
+    def * = (facid, name, membercost, guestcost, initialoutlay, monthlymaintenance).<>(
       FacilitiesRow.tupled,
       FacilitiesRow.unapply
     )
@@ -228,7 +226,7 @@ trait Tables {
 
   /** Table description of table members. Objects of this class serve as prototypes for rows in queries. */
   class Members(_tableTag: Tag) extends profile.api.Table[MembersRow](_tableTag, Some("cd"), "members") {
-    def * = (memid, surname, firstname, address, zipcode, telephone, recommendedby, joindate) <> (
+    def * = (memid, surname, firstname, address, zipcode, telephone, recommendedby, joindate).<>(
       MembersRow.tupled,
       MembersRow.unapply
     )

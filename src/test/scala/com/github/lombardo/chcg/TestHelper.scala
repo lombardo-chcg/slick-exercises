@@ -1,10 +1,9 @@
 package com.github.lombardo.chcg
 
-import java.util.concurrent.TimeUnit.SECONDS
-
 import com.github.lombardo.chcg.database.Connection.db
-import slick.dbio.{ DBIOAction, NoStream }
+import slick.dbio.{DBIOAction, NoStream}
 
+import java.util.concurrent.TimeUnit.SECONDS
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 

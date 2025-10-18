@@ -1,7 +1,7 @@
 package com.github.lombardo.chcg.solutions
 
-import com.github.lombardo.chcg.database.Connection.{ db, defaultDuration }
-import com.github.lombardo.chcg.database.Tables.{ Bookings, Facilities, FacilitiesRow, Members }
+import com.github.lombardo.chcg.database.Connection.{db, defaultDuration}
+import com.github.lombardo.chcg.database.Tables.{Facilities, FacilitiesRow, Members}
 import slick.jdbc.PostgresProfile.api._
 
 import scala.concurrent.Await
