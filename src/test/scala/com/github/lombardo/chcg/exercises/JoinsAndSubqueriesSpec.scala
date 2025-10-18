@@ -1,10 +1,11 @@
 package com.github.lombardo.chcg.exercises
 
 import com.github.lombardo.chcg.TestHelper.executeQuery
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
 import slick.jdbc.PostgresProfile.api._
 
-class JoinsAndSubqueriesSpec extends FlatSpec with Matchers {
+class JoinsAndSubqueriesSpec extends AnyFlatSpec with Matchers {
 
   "Joins and Subqueries" should "Retrieve the start times of members bookings" in {
     val solutionQuery =
@@ -19,7 +20,7 @@ class JoinsAndSubqueriesSpec extends FlatSpec with Matchers {
         and mems.surname='Farrell';
       """.as[java.sql.Timestamp]
     val expectedResult = executeQuery(solutionQuery)
-    val result = JoinsAndSubqueries.`Retrieve the start times of members bookings`
+    val result         = JoinsAndSubqueries.`Retrieve the start times of members bookings`
     result should be(expectedResult)
   }
 
@@ -38,7 +39,7 @@ class JoinsAndSubqueriesSpec extends FlatSpec with Matchers {
         order by bks.starttime;
       """.as[(java.sql.Timestamp, String)]
     val expectedResult = executeQuery(solutionQuery)
-    val result = JoinsAndSubqueries.`Work out the start times of bookings for tennis courts`
+    val result         = JoinsAndSubqueries.`Work out the start times of bookings for tennis courts`
     result should be(expectedResult)
   }
 
@@ -53,7 +54,7 @@ class JoinsAndSubqueriesSpec extends FlatSpec with Matchers {
         order by surname, firstname;
       """.as[(String, String)]
     val expectedResult = executeQuery(solutionQuery)
-    val result = JoinsAndSubqueries.`Produce a list of all members who have recommended another member`
+    val result         = JoinsAndSubqueries.`Produce a list of all members who have recommended another member`
     result should be(expectedResult)
   }
 
@@ -72,7 +73,7 @@ class JoinsAndSubqueriesSpec extends FlatSpec with Matchers {
         order by memsname, memfname;
       """.as[(String, String, Option[String], Option[String])]
     val expectedResult = executeQuery(solutionQuery)
-    val result = JoinsAndSubqueries.`Produce a list of all members, along with their recommender`
+    val result         = JoinsAndSubqueries.`Produce a list of all members, along with their recommender`
     result should be(expectedResult)
   }
 
@@ -91,7 +92,7 @@ class JoinsAndSubqueriesSpec extends FlatSpec with Matchers {
         order by member, facility
       """.as[(String, String)]
     val expectedResult = executeQuery(solutionQuery)
-    val result = JoinsAndSubqueries.`Produce a list of all members who have used a tennis court`
+    val result         = JoinsAndSubqueries.`Produce a list of all members who have used a tennis court`
     result should be(expectedResult)
   }
 
@@ -121,7 +122,7 @@ class JoinsAndSubqueriesSpec extends FlatSpec with Matchers {
         order by cost desc;
     """.as[(String, String, BigDecimal)]
     val expectedResult = executeQuery(solutionQuery)
-    val result = JoinsAndSubqueries.`Produce a list of costly bookings`
+    val result         = JoinsAndSubqueries.`Produce a list of costly bookings`
     result should be(expectedResult)
   }
 }
