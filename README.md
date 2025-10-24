@@ -45,10 +45,14 @@ The test suite **requires** a connection to a Postgres instance containing this 
 A Dockerized PG image containing the dataset has been created for convenience.  To use it, run this command:
 
 ```sh
+# First, check to see if you already have a PG running and stop it if needed.
+lsof -i tcp:5432
+
+# Then run the custom Docker image in the background:
 docker run -d -p 5432:5432  \
   -e "POSTGRES_USER=postgres" \
   -e "POSTGRES_PASSWORD=postgres" \
-  lombardo/postgresql-exercises-docker:0.0.1
+  lombardo/postgresql-exercises-docker:1.0.0
 ```
 
 Leave this container running for the duration of your workflow.
